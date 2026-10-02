@@ -1,0 +1,33 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.dogpound.patches.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinMoreMekaSuitAE",
+    "MixinDimDoorsGatewaySafe",
+    "MixinNpcsShapedRecipeBounds",
+    "MixinNpcsResistancesNullDamage",
+    "MixinCyclopsEarlyRegistryEvent",
+    "MixinEndExpansionTemplateCache",
+    "MixinLambdaLibScalaObjects",
+    "MixinLambdaLibScalaObjectsEvents",
+    "MixinTouhouCreeperScarecrow",
+    "MixinTraincraftAssemblyOres",
+    "MixinAe2WutExtendedCrafting",
+    "MixinColoniesItemStorageNbt",
+    "MixinRealWorldMossFloor",
+    "MixinBetterWeatherNoChunkGen",
+    "MixinBetterWeatherRodNoChunkGen",
+    "MixinTraincraftUnloadClientOnly"
+  ],
+  "client": [
+    "MixinBwmNoFovJolt",
+    "MixinBwmGloomNoFov",
+    "MixinFallingLeavesNoFrames",
+    "MixinFuturepackAirbrushLater",
+    "MixinTouhouNpcRenderGuard",
+    "MixinNpcsVersionCheckerSpin",
+    "MixinHbmManualTooEarly"
+  ]
+}

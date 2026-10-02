@@ -1,0 +1,80 @@
+// IUCascadeFix — runtime coremod that stops Industrial Upgrade's worldgen from
+// loading neighbour chunks during population (the cascading-worldgen lag that
+// freezes the world when flying fast). Patches IU at runtime; never touches its jar.
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+version = '1.0.0'
+group = 'com.dogpound.patches'
+archivesBaseName = 'PridePatches-1.12.2'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    // MixinBooter API bundles Mixin (IEarlyMixinLoader + org.spongepowered.asm.*)
+    compileOnly files('libs/mixinbooter-api.jar')
+    compileOnly files('libs/sponge-mixin.jar')
+    compileOnly files('libs/iu.jar')
+    compileOnly files('libs/hbm.jar')
+    compileOnly files('libs/minecolonies.jar')
+    compileOnly files('libs/realworld.jar')
+    compileOnly files('libs/betterweather.jar')
+    compileOnly files('libs/hac.jar')
+    compileOnly files('libs/thaumicattempts.jar')
+    compileOnly files('libs/cqr.jar')
+    compileOnly files('libs/moremekasuit.jar')
+    compileOnly files('libs/bwm.jar')
+    compileOnly files('libs/fallingleaves.jar')
+    compileOnly files('libs/dimdoors.jar')
+    compileOnly files('libs/cnpc.jar')
+    compileOnly files('libs/cyclopscore.jar')
+    compileOnly files('libs/endexpansion.jar')
+    compileOnly files('libs/academycraft.jar')
+    compileOnly files('libs/touhou.jar')
+    compileOnly files('libs/traincraft.jar')
+    compileOnly files('libs/extendedcrafting.jar')
+    compileOnly files('libs/ae2wut.jar')
+}
+
+jar {
+    // com/leafia/** are COMPILE-ONLY stubs (see src/main/java/com/leafia/) that let the
+    // Mixin AP resolve @Mixin(targets="com.leafia...") against NTM Cursed's Java-25 classes,
+    // which can't go on a JDK8 classpath. They must NOT ship in the jar — the real NTM
+    // classes are used at runtime.
+    exclude 'com/leafia/**'
+    exclude 'noppes/**'
+    exclude 'zone/**'
+    exclude 'github/**'
+    exclude 'mirror/**'
+    exclude 'gregtechfoodoption/**'
+    exclude 'com/hbmspace/**'
+    exclude 'com/hbm/**'
+    exclude 'cam72cam/**'
+    exclude 'cn/**'
+    manifest {
+        attributes([
+            'FMLCorePlugin'               : 'com.dogpound.patches.DogPoundPatches',
+            'FMLCorePluginContainsFMLMod' : 'true',
+            'ForceLoadAsMod'              : 'false',
+            'MixinConfigs'                : 'dogpoundpatches.mixins.json'
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
