@@ -31,6 +31,7 @@ dependencies {
     compileOnly files('libs/mixinbooter-api.jar')
     compileOnly files('libs/sponge-mixin.jar')
     compileOnly files('libs/iu.jar')
+    compileOnly files('libs/ctm.jar')
     compileOnly files('libs/hbm.jar')
     compileOnly files('libs/minecolonies.jar')
     compileOnly files('libs/realworld.jar')

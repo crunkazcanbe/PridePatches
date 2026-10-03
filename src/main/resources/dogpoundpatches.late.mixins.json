@@ -23,6 +23,8 @@
     "MixinTraincraftUnloadClientOnly"
   ],
   "client": [
+    "MixinCtmItemOverrideSafe",
+    "MixinIuTooltipMainThread",
     "MixinBwmNoFovJolt",
     "MixinBwmGloomNoFov",
     "MixinFallingLeavesNoFrames",
