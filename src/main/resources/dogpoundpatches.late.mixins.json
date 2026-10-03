@@ -4,6 +4,7 @@
   "package": "com.dogpound.patches.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinIuTooltipBadMeta",
     "MixinMoreMekaSuitAE",
     "MixinDimDoorsGatewaySafe",
     "MixinNpcsShapedRecipeBounds",
