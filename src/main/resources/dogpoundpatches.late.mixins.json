@@ -5,6 +5,13 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinIuTooltipBadMeta",
+    "MixinMoreCreepsCastleFloor",
+    "MixinIuVeinWorldBottom",
+    "MixinVillagerBackportHomeBackoff",
+    "MixinDhChunkHeight",
+    "MixinDhServerLevelHeight",
+    "MixinGotaLocationFinder",
+    "MixinJsgAncientShield",
     "MixinMoreMekaSuitAE",
     "MixinDimDoorsGatewaySafe",
     "MixinNpcsShapedRecipeBounds",
@@ -20,9 +27,20 @@
     "MixinRealWorldMossFloor",
     "MixinBetterWeatherNoChunkGen",
     "MixinBetterWeatherRodNoChunkGen",
-    "MixinTraincraftUnloadClientOnly"
+    "MixinTraincraftUnloadClientOnly",
+    "MixinRealWorldHangingPlantNoPlayer",
+    "MixinMcefOffline",
+    "MixinOtgOverworldName",
+    "MixinClockworkVillageOtg",
+    "MixinTemplateFixCache",
+    "MixinBwmFurnaceOrphan",
+    "MixinOpenModsWalkerFastId",
+    "MixinWalkerSharedIds",
+    "MixinGeoCraftAtmosphereSnapshot",
+    "MixinSereneSeasonsNullBiome"
   ],
   "client": [
+    "MixinDhClientLevelHeight",
     "MixinCtmItemOverrideSafe",
     "MixinIuTooltipMainThread",
     "MixinBwmNoFovJolt",
@@ -31,6 +49,7 @@
     "MixinFuturepackAirbrushLater",
     "MixinTouhouNpcRenderGuard",
     "MixinNpcsVersionCheckerSpin",
-    "MixinHbmManualTooEarly"
+    "MixinHbmManualTooEarly",
+    "MixinConquestModelFilterEarly"
   ]
 }

@@ -38,7 +38,9 @@ public abstract class MixinWorld {
     private void dpp$getBlock(BlockPos pos, CallbackInfoReturnable<IBlockState> cir) {
         if (GenGuard.ACTIVE.get() && !((World) (Object) this).isBlockLoaded(pos)) {
             dpp$count();
-            cir.setReturnValue(Blocks.AIR.getDefaultState());
+            // at/below y=0 answer bedrock: "scan down until ground" loops (MoreCreeps castles, 10-03)
+            // never ended when the unloaded corner kept reading air forever
+            cir.setReturnValue(pos.getY() <= 0 ? Blocks.BEDROCK.getDefaultState() : Blocks.AIR.getDefaultState());
         }
     }
 
@@ -68,7 +70,7 @@ public abstract class MixinWorld {
 
     private static void dpp$count() {
         GenGuard.blocked++;
-        if (GenGuard.blocked == 1 || GenGuard.blocked % 200 == 0) {
+        if (GenGuard.blocked == 1 || GenGuard.blocked % 100000 == 0) {   // was every 200: a stuck generator wrote a 2 GB log
             System.out.println("[DogPoundPatches] blocked " + GenGuard.blocked + " cross-chunk worldgen accesses (cascade prevented)");
         }
     }

@@ -7,6 +7,8 @@
   "mixins": [
     "MixinGameRegistry",
     "MixinWorld",
+    "MixinStatDuplicate",
+    "MixinCascadeTrace",
     "MixinCrashReportCategory",
     "MixinModContainerFactory",
     "MixinLoadControllerMixinConfigs",
@@ -16,10 +18,15 @@
     "MixinHeatBlockRegister",
     "MixinCqrDungeonGenManager",
     "MixinNetworkManagerCloseTimeout",
-    "MixinLoadControllerErrorLog"
+    "MixinLoadControllerErrorLog",
+    "MixinIntCacheThreadLocal",
+    "MixinVoronoiAligned",
+    "MixinFilteredFastId",
+    "MixinTileEntityAutoRegister"
   ],
   "client": [
     "MixinEntityRenderer",
+    "MixinSkinTextureCast",
     "MixinGuiIngameForge",
     "MixinLeafiaPassiveLocal",
     "MixinLeafiaDigamma",
@@ -44,7 +51,9 @@
     "MixinCreativeDockWheel",
     "MixinMinecraftLoaded",
     "MixinNpcCreativeTabsDraw",
-    "MixinSuppressedButtonClick"
+    "MixinSuppressedButtonClick",
+    "MixinSkyTextureLeak",
+    "MixinPatcherFocusVolume"
   ],
   "server": []
 }

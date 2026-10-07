@@ -26,7 +26,14 @@ public class DogPoundPatches implements IFMLLoadingPlugin, IEarlyMixinLoader {
         // Register EARLY so the mixins catch GameRegistry/World, which load very early.
         // Safe now: targets are core Forge/vanilla classes only (no mod class to poison).
         try { MixinBootstrap.init(); Mixins.addConfiguration(CONFIG); } catch (Throwable ignored) {}
+        // Distant Horizons registers its render/camera mixins through a manifest MixinConnector, which Cleanroom never
+        // calls: DH built LODs but could never draw them (2026-10-03, "I can't see far like other people"). Register them.
+        try {
+            if (DogPoundPatches.class.getClassLoader().getResource(DH_CONFIG) != null) Mixins.addConfiguration(DH_CONFIG);
+        } catch (Throwable ignored) {}
     }
+
+    private static final String DH_CONFIG = "DistantHorizons.default.mixins.json";
 
     @Override public List<String> getMixinConfigs() { return Arrays.asList(CONFIG); }
 

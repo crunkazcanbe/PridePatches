@@ -12,7 +12,7 @@ import net.minecraft.client.gui.inventory.GuiInventory;
 import org.lwjgl.input.Mouse;
 
 /**
- * Her ask 2026-09-28: every button any mod puts on the LEFT of the survival/creative inventory lines up in one neat
+ * Requested: every button any mod puts on the LEFT of the survival/creative inventory lines up in one neat
  * column flush against the inventory, whatever mod it's from — no per-mod code. More than fit? ▲ ▼ arrows (and the
  * mouse wheel over the column) scroll through them. Buttons scrolled out of view are hidden (can't be clicked);
  * a button its own mod hides stays hidden and takes no room.
@@ -35,7 +35,7 @@ public final class SideDock {
         int scroll = savedScroll, maxScroll, top, bottom, left, colW = 16;
     }
 
-    /** buttons she asked to have removed: Custom NPCs' two creative-inventory tabs (ids 150/151) */
+    /** buttons requested to have removed: Custom NPCs' two creative-inventory tabs (ids 150/151) */
     public static boolean suppressed(GuiButton b) {
         if (b.id != 150 && b.id != 151) return false;
         if (!b.getClass().getName().equals("noppes.npcs.client.gui.util.GuiNpcButton")) return false;
@@ -89,7 +89,7 @@ public final class SideDock {
         d.colW = 16;
         for (GuiButton b : shown) { total += b.height + GAP; d.colW = Math.max(d.colW, b.width); }
         d.left = guiLeft;
-        // room: exactly the inventory window's height, never bigger (her ask)
+        // room: exactly the inventory window's height, never bigger (requested feature)
         int roomTop = Math.max(0, guiTop), roomBottom = Math.min(g.height, guiTop + h);
         d.arrows = total > roomBottom - roomTop - 6;
         d.top = roomTop + (d.arrows ? ARROW + GAP + 3 : 3);
@@ -259,7 +259,7 @@ public final class SideDock {
     }
 
     /**
-     * Her ask: every button in the column must look identical. Another mod's button (e.g. Custom NPCs' big grey tabs)
+     * Requested: every button in the column must look identical. Another mod's button (e.g. Custom NPCs' big grey tabs)
      * is drawn inside our frame, scaled to fit; clicking it sends exactly what the game would have sent for the
      * original (Forge's ActionPerformed events + the screen's own handler), so the mod behaves as before.
      */

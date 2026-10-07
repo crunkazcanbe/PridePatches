@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Dynamic Surroundings crash (her pack, 2026-09-28): Futurepack's "Airbush Recipe Scanner" thread starts in the
+ * Dynamic Surroundings crash (the pack, 2026-09-28): Futurepack's "Airbush Recipe Scanner" thread starts in the
  * middle of loading and builds a fake WorldClient; that fires WorldEvent.Load, Dynamic Surroundings answers it before
  * its biome registry exists (RegistryManager.BIOME == null) and its EnvironState class dies for good →
  * "Could not initialize class EnvironStateHandler$EnvironState" at load-complete. A race, so it came and went.

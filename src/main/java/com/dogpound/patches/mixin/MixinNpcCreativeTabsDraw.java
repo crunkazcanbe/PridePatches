@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Her ask 2026-09-28 ("just remove them"): Custom NPCs' two creative-inventory tabs (ids 150/151) kept drawing on
+ * Requested ("just remove them"): Custom NPCs' two creative-inventory tabs (ids 150/151) kept drawing on
  * top of the side dock whatever the dock did — their button has its own draw code. Stop it drawing there.
  * (Factions + Quests stay reachable from the survival inventory's top tabs.)
  */

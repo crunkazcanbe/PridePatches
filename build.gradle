@@ -13,7 +13,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 
-version = '1.0.0'
+version = '1.1.0'
 group = 'com.dogpound.patches'
 archivesBaseName = 'PridePatches-1.12.2'
 
@@ -31,7 +31,13 @@ dependencies {
     compileOnly files('libs/mixinbooter-api.jar')
     compileOnly files('libs/sponge-mixin.jar')
     compileOnly files('libs/iu.jar')
+    compileOnly files('libs/mcef.jar')
+    compileOnly files('libs/gota.jar')
+    compileOnly files('libs/polypatcher.jar')
+    compileOnly files('libs/villagerbackport.jar')
+    compileOnly files('libs/jsg.jar')
     compileOnly files('libs/ctm.jar')
+    compileOnly files('libs/morecreeps.jar')
     compileOnly files('libs/hbm.jar')
     compileOnly files('libs/minecolonies.jar')
     compileOnly files('libs/realworld.jar')
@@ -51,6 +57,7 @@ dependencies {
     compileOnly files('libs/traincraft.jar')
     compileOnly files('libs/extendedcrafting.jar')
     compileOnly files('libs/ae2wut.jar')
+    compileOnly files('libs/distanthorizons.jar')
 }
 
 jar {
